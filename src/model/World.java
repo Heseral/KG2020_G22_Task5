@@ -2,13 +2,13 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package kg2019examples_task5animation.model;
+package model;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
-import kg2019examples_task5animation.math.Vector2;
-import kg2019examples_task5animation.utils2d.ScreenConverter;
-import kg2019examples_task5animation.utils2d.ScreenPoint;
+import math.Vector2;
+import utils2d.ScreenConverter;
+import utils2d.ScreenPoint;
 
 /**
  *
@@ -74,14 +74,14 @@ public class World {
         int w = sc.r2sDistanceH(f.getRectangle().getWidth());
         int h = sc.r2sDistanceV(f.getRectangle().getHeight());
         g.setColor(Color.WHITE);
-        g.fillRect(tl.getI(), tl.getJ(), w, h);
+        g.fillRect(tl.getX(), tl.getY(), w, h);
         g.setColor(Color.RED);
-        g.drawRect(tl.getI(), tl.getJ(), w, h);
+        g.drawRect(tl.getX(), tl.getY(), w, h);
         ScreenPoint pc = sc.r2s(p.getPosition());
         int rh = sc.r2sDistanceH(p.getR());
         int rv = sc.r2sDistanceV(p.getR());
         g.setColor(Color.BLACK);
-        g.fillOval(pc.getI() - rh, pc.getJ() - rv, rh + rh, rv + rv);
+        g.fillOval(pc.getX() - rh, pc.getY() - rv, rh + rh, rv + rv);
         
         g.drawString(String.format("Mu=%.2f", f.getMu()), 10, 30);
         g.drawString(String.format("F=%.0f", externalForce.getValue()), 10, 50);

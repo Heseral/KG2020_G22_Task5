@@ -2,9 +2,9 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package kg2019examples_task5animation.model;
+package model;
 
-import kg2019examples_task5animation.math.Rectangle;
+import math.Rectangle;
 
 /**
  *

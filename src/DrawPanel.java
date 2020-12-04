@@ -2,7 +2,6 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package kg2019examples_task5animation;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -14,16 +13,16 @@ import java.awt.event.MouseMotionListener;
 import java.awt.event.MouseWheelEvent;
 import java.awt.event.MouseWheelListener;
 import java.awt.image.BufferedImage;
-import kg2019examples_task5animation.timers.AbstractWorldTimer;
+import timers.AbstractWorldTimer;
 import javax.swing.JPanel;
 import javax.swing.Timer;
-import kg2019examples_task5animation.math.Rectangle;
-import kg2019examples_task5animation.model.Field;
-import kg2019examples_task5animation.model.Puck;
-import kg2019examples_task5animation.model.World;
-import kg2019examples_task5animation.timers.UpdateWorldTimer;
-import kg2019examples_task5animation.utils2d.ScreenConverter;
-import kg2019examples_task5animation.utils2d.ScreenPoint;
+import math.Rectangle;
+import model.Field;
+import model.Puck;
+import model.World;
+import timers.UpdateWorldTimer;
+import utils2d.ScreenConverter;
+import utils2d.ScreenPoint;
 
 /**
  *

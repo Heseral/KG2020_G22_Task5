@@ -2,7 +2,6 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package kg2019examples_task5animation;
 
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
@@ -11,7 +10,7 @@ import javax.swing.WindowConstants;
  *
  * @author Alexey
  */
-public class KG2019Examples_Task5Animation {
+public class Main {
 
     /**
      * @param args the command line arguments

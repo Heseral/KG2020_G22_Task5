@@ -2,10 +2,10 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package kg2019examples_task5animation.utils2d;
+package utils2d;
 
-import kg2019examples_task5animation.math.Rectangle;
-import kg2019examples_task5animation.math.Vector2;
+import math.Rectangle;
+import math.Vector2;
 
 /**
  *
@@ -55,8 +55,8 @@ public class ScreenConverter {
      * @return Точка в реальных координатах
      */
     public Vector2 s2r(ScreenPoint p) {
-        double x = xr + p.getI()*wr/ws;
-        double y = yr - p.getJ()*hr/hs;
+        double x = xr + p.getX()*wr/ws;
+        double y = yr - p.getY()*hr/hs;
         return new Vector2(x, y);
     }
     
@@ -67,7 +67,7 @@ public class ScreenConverter {
      */
     public int r2sDistanceH(double d) {
         /*Можно написать проще*/
-        return r2s(new Vector2(d, 0)).getI() - r2s(new Vector2(0, 0)).getI();
+        return r2s(new Vector2(d, 0)).getX() - r2s(new Vector2(0, 0)).getX();
     }
     
     /**
@@ -77,7 +77,7 @@ public class ScreenConverter {
      */
     public int r2sDistanceV(double d) {
         /*Можно написать проще*/
-        return r2s(new Vector2(0, 0)).getJ() - r2s(new Vector2(0, d)).getJ();
+        return r2s(new Vector2(0, 0)).getY() - r2s(new Vector2(0, d)).getY();
     }
 
     public double getHr() {
