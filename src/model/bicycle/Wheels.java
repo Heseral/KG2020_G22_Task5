@@ -8,12 +8,12 @@ public class Wheels {
     private double prevState = 0;
     private double state = 0;
     private Bicycle bicycle;
-    private final int radius = 50;
-    private final int firstCenterX = 350;
-    private final int firstCenterY = 400;
-    private final int secondCenterX = 550;
-    private final int secondCenterY = getFirstCenterY();
-    private final int shift = -50;
+    private final int RADIUS = 50;
+    private final int FIRST_CENTER_X = 350;
+    private final int FIRST_CENTER_Y = 400;
+    private final int SECOND_CENTER_X = 550;
+    private final int SECOND_CENTER_Y = getFIRST_CENTER_Y();
+    private final int SHIFT = -50;
 
     public Wheels(Bicycle bicycle) {
         setBicycle(bicycle);
@@ -23,25 +23,25 @@ public class Wheels {
         updateState();
 
         graphics.setColor(Color.BLACK);
-        graphics.drawOval(getFirstCenterX() + getShift(), getFirstCenterY() + getShift(), getRadius() * 2, getRadius() * 2);
-        graphics.drawOval(getSecondCenterX() + getShift(), getSecondCenterY() + getShift(), getRadius() * 2, getRadius() * 2);
+        graphics.drawOval(getFIRST_CENTER_X() + getSHIFT(), getFIRST_CENTER_Y() + getSHIFT(), getRADIUS() * 2, getRADIUS() * 2);
+        graphics.drawOval(getSECOND_CENTER_X() + getSHIFT(), getSECOND_CENTER_Y() + getSHIFT(), getRADIUS() * 2, getRADIUS() * 2);
         double stateInRadians = state * 2 * Math.PI;
         // спицы для 1 колеса
         for (double i = 0; i < GlobalVar.DOUBLE_PI; i += GlobalVar.PI_DIV_8) {
             graphics.drawLine(
-                    getFirstCenterX(),
-                    getFirstCenterY(),
-                    (int) Math.round(getFirstCenterX() + Math.cos(i - stateInRadians) * getRadius()),
-                    (int) Math.round(getFirstCenterY() + Math.sin(i - stateInRadians) * getRadius())
+                    getFIRST_CENTER_X(),
+                    getFIRST_CENTER_Y(),
+                    (int) Math.round(getFIRST_CENTER_X() + Math.cos(i - stateInRadians) * getRADIUS()),
+                    (int) Math.round(getFIRST_CENTER_Y() + Math.sin(i - stateInRadians) * getRADIUS())
             );
         }
         // спицы для 2 колеса
         for (double i = 0; i < GlobalVar.DOUBLE_PI; i += GlobalVar.PI_DIV_8) {
             graphics.drawLine(
-                    getSecondCenterX(),
-                    getSecondCenterY(),
-                    (int) Math.round(getSecondCenterX() + Math.cos(i - stateInRadians) * getRadius()),
-                    (int) Math.round(getSecondCenterY() + Math.sin(i - stateInRadians) * getRadius())
+                    getSECOND_CENTER_X(),
+                    getSECOND_CENTER_Y(),
+                    (int) Math.round(getSECOND_CENTER_X() + Math.cos(i - stateInRadians) * getRADIUS()),
+                    (int) Math.round(getSECOND_CENTER_Y() + Math.sin(i - stateInRadians) * getRADIUS())
             );
         }
     }
@@ -77,27 +77,27 @@ public class Wheels {
         this.prevState = prevState;
     }
 
-    public int getRadius() {
-        return radius;
+    public int getRADIUS() {
+        return RADIUS;
     }
 
-    public int getFirstCenterX() {
-        return firstCenterX;
+    public int getFIRST_CENTER_X() {
+        return FIRST_CENTER_X;
     }
 
-    public int getFirstCenterY() {
-        return firstCenterY;
+    public int getFIRST_CENTER_Y() {
+        return FIRST_CENTER_Y;
     }
 
-    public int getSecondCenterX() {
-        return secondCenterX;
+    public int getSECOND_CENTER_X() {
+        return SECOND_CENTER_X;
     }
 
-    public int getSecondCenterY() {
-        return secondCenterY;
+    public int getSECOND_CENTER_Y() {
+        return SECOND_CENTER_Y;
     }
 
-    public int getShift() {
-        return shift;
+    public int getSHIFT() {
+        return SHIFT;
     }
 }

@@ -20,60 +20,62 @@ public class Bicycle {
      * @param graphics
      */
     public void onInit(Graphics graphics) {
+        background.onInit(graphics);
+
         graphics.setColor(Color.BLACK);
         // верхняя палка. На ней сиденье, и она смежна с двумя палками, соединяющими 2 разных колеса. Чертится слева направо
         graphics.drawLine(
-                wheels.getFirstCenterX() + wheels.getRadius() - 20,
-                wheels.getFirstCenterY() - wheels.getRadius() - 20,
-                wheels.getSecondCenterX() - wheels.getRadius(),
-                wheels.getSecondCenterY() - wheels.getRadius() - 10
+                wheels.getFIRST_CENTER_X() + wheels.getRADIUS() - 20,
+                wheels.getFIRST_CENTER_Y() - wheels.getRADIUS() - 20,
+                wheels.getSECOND_CENTER_X() - wheels.getRADIUS(),
+                wheels.getSECOND_CENTER_Y() - wheels.getRADIUS() - 10
         );
         // руля до переднего колеса. Чертится от колеса к рулю
         graphics.drawLine(
-                wheels.getFirstCenterX(),
-                wheels.getFirstCenterY(),
-                wheels.getFirstCenterX() + wheels.getRadius() - 16,
-                wheels.getFirstCenterY() - wheels.getRadius() - 30
+                wheels.getFIRST_CENTER_X(),
+                wheels.getFIRST_CENTER_Y(),
+                wheels.getFIRST_CENTER_X() + wheels.getRADIUS() - 16,
+                wheels.getFIRST_CENTER_Y() - wheels.getRADIUS() - 30
         );
         // палка от верхней палки к центру правого колеса. Чертится от колеса к палке
         graphics.drawLine(
-                wheels.getSecondCenterX(),
-                wheels.getSecondCenterY(),
-                wheels.getSecondCenterX() - wheels.getRadius(),
-                wheels.getSecondCenterY() - wheels.getRadius() - 10
+                wheels.getSECOND_CENTER_X(),
+                wheels.getSECOND_CENTER_Y(),
+                wheels.getSECOND_CENTER_X() - wheels.getRADIUS(),
+                wheels.getSECOND_CENTER_Y() - wheels.getRADIUS() - 10
         );
         // палка, соединяющая заднее колесо с педалями (от колеса к педалям)
         graphics.drawLine(
-                wheels.getSecondCenterX(),
-                wheels.getSecondCenterY(),
-                wheels.getSecondCenterX() - wheels.getRadius() - 25,
-                wheels.getSecondCenterY()
+                wheels.getSECOND_CENTER_X(),
+                wheels.getSECOND_CENTER_Y(),
+                wheels.getSECOND_CENTER_X() - wheels.getRADIUS() - 25,
+                wheels.getSECOND_CENTER_Y()
         );
         // палка, соединяющая сиденье с педалями (от педалей к сиденью)
         graphics.drawLine(
-                wheels.getSecondCenterX() - wheels.getRadius() - 25,
-                wheels.getSecondCenterY(),
-                wheels.getSecondCenterX() - wheels.getRadius() + 7,
-                wheels.getSecondCenterY() - wheels.getRadius() - 20
+                wheels.getSECOND_CENTER_X() - wheels.getRADIUS() - 25,
+                wheels.getSECOND_CENTER_Y(),
+                wheels.getSECOND_CENTER_X() - wheels.getRADIUS() + 7,
+                wheels.getSECOND_CENTER_Y() - wheels.getRADIUS() - 20
         );
         // палка, соединяющая руль с педалями (от педалей к рулю)
         graphics.drawLine(
-                wheels.getSecondCenterX() - wheels.getRadius() - 25,
-                wheels.getSecondCenterY(),
-                wheels.getFirstCenterX() + wheels.getRadius() - 20,
-                wheels.getFirstCenterY() - wheels.getRadius() - 20
+                wheels.getSECOND_CENTER_X() - wheels.getRADIUS() - 25,
+                wheels.getSECOND_CENTER_Y(),
+                wheels.getFIRST_CENTER_X() + wheels.getRADIUS() - 20,
+                wheels.getFIRST_CENTER_Y() - wheels.getRADIUS() - 20
         );
         // руль (сверху вниз)
         graphics.drawLine(
-                wheels.getFirstCenterX() + wheels.getRadius() - 15,
-                wheels.getFirstCenterY() - wheels.getRadius() - 50,
-                wheels.getFirstCenterX() + wheels.getRadius() - 15,
-                wheels.getFirstCenterY() - wheels.getRadius() - 10
+                wheels.getFIRST_CENTER_X() + wheels.getRADIUS() - 15,
+                wheels.getFIRST_CENTER_Y() - wheels.getRADIUS() - 50,
+                wheels.getFIRST_CENTER_X() + wheels.getRADIUS() - 15,
+                wheels.getFIRST_CENTER_Y() - wheels.getRADIUS() - 10
         );
         // сиденье
         graphics.fillOval(
-                wheels.getSecondCenterX() - wheels.getRadius() - 20,
-                wheels.getSecondCenterY() - wheels.getRadius() - 30,
+                wheels.getSECOND_CENTER_X() - wheels.getRADIUS() - 20,
+                wheels.getSECOND_CENTER_Y() - wheels.getRADIUS() - 30,
                 50,
                 20
         );
