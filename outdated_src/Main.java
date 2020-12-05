@@ -1,15 +1,26 @@
-import util.GlobalVar;
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
 
-import javax.swing.*;
+import javax.swing.JFrame;
+import javax.swing.WindowConstants;
 
+/**
+ *
+ * @author Alexey
+ */
 public class Main {
+
+    /**
+     * @param args the command line arguments
+     */
     public static void main(String[] args) {
         JFrame frame = new JFrame();
-        frame.setSize(GlobalVar.WINDOW_WIDTH, GlobalVar.WINDOW_HEIGHT);
+        frame.setSize(500, 500);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        frame.setResizable(false);
-        DrawPanel drawPanel = new DrawPanel();
-        frame.add(drawPanel);
+        DrawPanel panel = new DrawPanel();
+        frame.add(panel);
         frame.setVisible(true);
     }
 }
