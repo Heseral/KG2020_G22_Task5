@@ -2,6 +2,8 @@ package model;
 
 import model.bicycle.Bicycle;
 
+import java.awt.*;
+
 public class Background {
     private Bicycle bicycle;
 
@@ -9,7 +11,7 @@ public class Background {
         setBicycle(bicycle);
     }
 
-    public void process() {
+    public void process(Graphics graphics) {
 
     }
 

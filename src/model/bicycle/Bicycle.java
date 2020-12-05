@@ -15,13 +15,9 @@ public class Bicycle {
     private double speed = 0;
 
     public void process(Graphics graphics) {
-        if (getSpeed() == 0) {
-            return;
-        }
-
-        getPedalAndHuman().process();
-        getWheels().process();
-        getBackground().process();
+        getPedalAndHuman().process(graphics);
+        getWheels().process(graphics);
+        getBackground().process(graphics);
         updateSpeed();
     }
 

@@ -1,5 +1,7 @@
 package model.bicycle;
 
+import java.awt.*;
+
 public class PedalAndHuman {
     private double prevState = 0;
     private double state = 0;
@@ -9,7 +11,7 @@ public class PedalAndHuman {
         setBicycle(bicycle);
     }
 
-    public void process() {
+    public void process(Graphics graphics) {
 
     }
 

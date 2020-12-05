@@ -1,4 +1,5 @@
 import model.bicycle.Bicycle;
+import util.GlobalVar;
 
 import javax.swing.*;
 import java.awt.*;
@@ -17,14 +18,15 @@ public class DrawPanel extends JPanel implements KeyListener, MouseWheelListener
 
     public DrawPanel() {
         super();
+        addMouseWheelListener(this);
 
         getTimer().schedule(new TimerTask() {
             @Override
             public void run() {
                 if (targetSpeed > bicycle.getSpeed()) {
-                    bicycle.setSpeed(bicycle.getSpeed() + 1);
+                    bicycle.setSpeed(bicycle.getSpeed() + 0.025);
                 } else if (targetSpeed < bicycle.getSpeed()) {
-                    bicycle.setSpeed(Math.max(1, (bicycle.getSpeed() - targetSpeed) * 0.5));
+                    bicycle.setSpeed(Math.max(0, bicycle.getSpeed() - 0.2));
                 }
                 repaint();
             }
@@ -34,7 +36,10 @@ public class DrawPanel extends JPanel implements KeyListener, MouseWheelListener
     @Override
     public void paint(Graphics graphics) {
         BufferedImage bufferedImage = new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_INT_RGB);
-        bicycle.process(graphics);
+        bufferedImage.getGraphics().setColor(Color.WHITE);
+        bufferedImage.getGraphics().fillRect(0,0, GlobalVar.WINDOW_WIDTH, GlobalVar.WINDOW_HEIGHT);
+        bufferedImage.getGraphics().setColor(Color.BLACK);
+        bicycle.process(bufferedImage.getGraphics());
         graphics.drawImage(bufferedImage, 0, 0, null);
     }
 
