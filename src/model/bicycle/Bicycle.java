@@ -73,6 +73,7 @@ public class Bicycle {
                 wheels.getFIRST_CENTER_Y() - wheels.getRADIUS() - 10
         );
         // сиденье
+        graphics.setColor(new Color(0, 0, 50));
         graphics.fillOval(
                 wheels.getSECOND_CENTER_X() - wheels.getRADIUS() - 20,
                 wheels.getSECOND_CENTER_Y() - wheels.getRADIUS() - 30,
