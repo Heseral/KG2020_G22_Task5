@@ -31,8 +31,8 @@ public class Wheels {
             graphics.drawLine(
                     firstCenterX,
                     firstCenterY,
-                    (int) Math.round(firstCenterX + Math.cos(stateInRadians + i) * radius),
-                    (int) Math.round(firstCenterY + Math.sin(stateInRadians + i) * radius)
+                    (int) Math.round(firstCenterX + Math.cos(i - stateInRadians) * radius),
+                    (int) Math.round(firstCenterY + Math.sin(i - stateInRadians) * radius)
             );
         }
         // спицы для 2 колеса
@@ -40,8 +40,8 @@ public class Wheels {
             graphics.drawLine(
                     secondCenterX,
                     secondCenterY,
-                    (int) Math.round(secondCenterX + Math.cos(stateInRadians + i) * radius),
-                    (int) Math.round(secondCenterY + Math.sin(stateInRadians + i) * radius)
+                    (int) Math.round(secondCenterX + Math.cos(i - stateInRadians) * radius),
+                    (int) Math.round(secondCenterY + Math.sin(i - stateInRadians) * radius)
             );
         }
     }
