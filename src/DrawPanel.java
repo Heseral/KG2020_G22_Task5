@@ -39,6 +39,7 @@ public class DrawPanel extends JPanel implements KeyListener, MouseWheelListener
         bufferedImage.getGraphics().setColor(Color.WHITE);
         bufferedImage.getGraphics().fillRect(0,0, GlobalVar.WINDOW_WIDTH, GlobalVar.WINDOW_HEIGHT);
         bufferedImage.getGraphics().setColor(Color.BLACK);
+        bicycle.onInit(bufferedImage.getGraphics());
         bicycle.process(bufferedImage.getGraphics());
         graphics.drawImage(bufferedImage, 0, 0, null);
     }
