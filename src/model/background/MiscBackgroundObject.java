@@ -14,7 +14,7 @@ public abstract class MiscBackgroundObject {
         setCurrentPosX(currentPosX);
         setCurrentPosY(currentPosY);
         setBackground(background);
-        SHIFT_COEFFICIENT = getCurrentPosY() / (GlobalVar.GLADE_HEIGHT + GlobalVar.SKIES_HEIGHT);
+        SHIFT_COEFFICIENT = getCurrentPosY() / (GlobalVar.GLADE_HEIGHT + GlobalVar.SKIES_HEIGHT) * 0.66;
     }
 
     public void process(Graphics graphics) {

@@ -15,6 +15,8 @@ public class Background {
     private final double STEP = 550;
     private final Color roadMarkingsColor = new Color(240, 220, 220);
     private List<MiscBackgroundObject> miscBackgroundObjects = new ArrayList<>();
+    // чтобы 120 раз в секунду не проходиться по списку объектов...
+    private boolean alreadyContentsBumpStop = false;
 
     public Background(Bicycle bicycle) {
         setBicycle(bicycle);
@@ -41,6 +43,11 @@ public class Background {
                     Misc.random(GlobalVar.SKIES_HEIGHT, GlobalVar.GLADE_HEIGHT),
                     this
             ));
+        }
+        if (!isAlreadyContentsBumpStop() && Misc.prob(getBicycle().getSpeed() / 200)) {
+            setAlreadyContentsBumpStop(true);
+            int length = Misc.random(200, 10000);
+            miscBackgroundObjects.add(new BumpStop(length, this));
         }
 
         for (int i = miscBackgroundObjects.size() - 1; i >= 0; i--) {
@@ -84,5 +91,13 @@ public class Background {
 
     public void setPrevState(double prevState) {
         this.prevState = prevState;
+    }
+
+    public boolean isAlreadyContentsBumpStop() {
+        return alreadyContentsBumpStop;
+    }
+
+    public void setAlreadyContentsBumpStop(boolean alreadyContentsBumpStop) {
+        this.alreadyContentsBumpStop = alreadyContentsBumpStop;
     }
 }

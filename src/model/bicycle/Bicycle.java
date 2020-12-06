@@ -83,9 +83,9 @@ public class Bicycle {
     }
 
     public void process(Graphics graphics) {
+        getBackground().process(graphics);
         getPedalAndHuman().process(graphics);
         getWheels().process(graphics);
-        getBackground().process(graphics);
         updateSpeed();
     }
 
