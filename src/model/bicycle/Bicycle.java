@@ -1,6 +1,6 @@
 package model.bicycle;
 
-import model.Background;
+import model.background.Background;
 
 import java.awt.*;
 

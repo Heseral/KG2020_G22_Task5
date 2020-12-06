@@ -1,15 +1,20 @@
-package model;
+package model.background;
 
 import model.bicycle.Bicycle;
 import util.GlobalVar;
+import util.Misc;
 
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Background {
     private Bicycle bicycle;
     private double prevState = 0;
     private double state = 0;
     private final double STEP = 550;
+    private final Color roadMarkingsColor = new Color(240, 220, 220);
+    private List<MiscBackgroundObject> miscBackgroundObjects = new ArrayList<>();
 
     public Background(Bicycle bicycle) {
         setBicycle(bicycle);
@@ -20,17 +25,32 @@ public class Background {
      */
     public void onInit(Graphics graphics) {
         graphics.setColor(new Color(60, 140, 200));
-        graphics.fillRect(0, 0, GlobalVar.WINDOW_WIDTH, 100);
+        graphics.fillRect(0, 0, GlobalVar.WINDOW_WIDTH, GlobalVar.SKIES_HEIGHT);
         graphics.setColor(new Color(25, 150, 25));
-        graphics.fillRect(0, 100, GlobalVar.WINDOW_WIDTH, 200);
+        graphics.fillRect(0, 100, GlobalVar.WINDOW_WIDTH, GlobalVar.GLADE_HEIGHT);
         graphics.setColor(new Color(50, 50, 50));
-        graphics.fillRect(0, 300, GlobalVar.WINDOW_WIDTH, 300);
+        graphics.fillRect(0, 300, GlobalVar.WINDOW_WIDTH, GlobalVar.ROAD_HEIGHT);
     }
 
     public void process(Graphics graphics) {
         updateState();
 
-        graphics.setColor(new Color(240, 220, 220));
+        if (Misc.prob(getBicycle().getSpeed() / 25)) {
+            miscBackgroundObjects.add(new Tree(
+                    -200,
+                    Misc.random(GlobalVar.SKIES_HEIGHT, GlobalVar.GLADE_HEIGHT),
+                    this
+            ));
+        }
+
+        for (int i = miscBackgroundObjects.size() - 1; i >= 0; i--) {
+            miscBackgroundObjects.get(i).process(graphics);
+            if (!miscBackgroundObjects.get(i).isStillRelevant()) {
+                miscBackgroundObjects.remove(i);
+            }
+        }
+
+        graphics.setColor(roadMarkingsColor);
         for (int i = (int) Math.round(-getState() * STEP); i < GlobalVar.WINDOW_WIDTH; i += STEP) {
             graphics.fillRect((int) Math.round(STEP - i), 500, 200, 20);
         }
