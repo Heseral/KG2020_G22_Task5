@@ -71,28 +71,28 @@ public class PedalAndHuman {
         graphics.drawLine(
                 firstPedalXPos + 10,
                 firstPedalYPos + 3,
-                getBicycle().getWheels().getSECOND_CENTER_X() - getBicycle().getWheels().getRADIUS() - 55,
+                (int) (getBicycle().getWheels().getSECOND_CENTER_X() - getBicycle().getWheels().getRADIUS() - 55 + (getBicycle().getWheels().getFIRST_CENTER_Y() - firstPedalYPos) * 0.1),
                 getBicycle().getWheels().getSECOND_CENTER_Y() - getBicycle().getWheels().getRADIUS() - 30 - (getBicycle().getWheels().getSECOND_CENTER_Y() - firstPedalYPos)
         );
         // голень человека на педали №2 (от педали до колена)
         graphics.drawLine(
                 secondPedalXPos + 10,
                 secondPedalYPos + 3,
-                getBicycle().getWheels().getSECOND_CENTER_X() - getBicycle().getWheels().getRADIUS() - 55,
+                (int) (getBicycle().getWheels().getSECOND_CENTER_X() - getBicycle().getWheels().getRADIUS() - 55 + (getBicycle().getWheels().getSECOND_CENTER_Y() - secondPedalYPos) * 0.1),
                 getBicycle().getWheels().getSECOND_CENTER_Y() - getBicycle().getWheels().getRADIUS() - 30 - (getBicycle().getWheels().getSECOND_CENTER_Y() - secondPedalYPos)
         );
         // бедро человека на педали №1 (от бедра к голени)
         graphics.drawLine(
                 getBicycle().getWheels().getSECOND_CENTER_X() - getBicycle().getWheels().getRADIUS() + 20,
                 getBicycle().getWheels().getSECOND_CENTER_Y() - getBicycle().getWheels().getRADIUS() - 20,
-                getBicycle().getWheels().getSECOND_CENTER_X() - getBicycle().getWheels().getRADIUS() - 55,
+                (int) (getBicycle().getWheels().getSECOND_CENTER_X() - getBicycle().getWheels().getRADIUS() - 55 + (getBicycle().getWheels().getFIRST_CENTER_Y() - firstPedalYPos) * 0.1),
                 getBicycle().getWheels().getSECOND_CENTER_Y() - getBicycle().getWheels().getRADIUS() - 30 - (getBicycle().getWheels().getFIRST_CENTER_Y() - firstPedalYPos)
         );
         // бедро человека на педали №2 (от бедра к голени)
         graphics.drawLine(
                 getBicycle().getWheels().getSECOND_CENTER_X() - getBicycle().getWheels().getRADIUS() + 20,
                 getBicycle().getWheels().getSECOND_CENTER_Y() - getBicycle().getWheels().getRADIUS() - 20,
-                getBicycle().getWheels().getSECOND_CENTER_X() - getBicycle().getWheels().getRADIUS() - 55,
+                (int) (getBicycle().getWheels().getSECOND_CENTER_X() - getBicycle().getWheels().getRADIUS() - 55 + (getBicycle().getWheels().getSECOND_CENTER_Y() - secondPedalYPos) * 0.1),
                 getBicycle().getWheels().getSECOND_CENTER_Y() - getBicycle().getWheels().getRADIUS() - 30 - (getBicycle().getWheels().getSECOND_CENTER_Y() - secondPedalYPos)
         );
         // туловище (от бедер к шее)
