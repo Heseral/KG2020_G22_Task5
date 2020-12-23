@@ -7,10 +7,10 @@ import java.awt.*;
 public class Bicycle {
     // задний фон относительно велосипеда
     private Background background = new Background(this);
-    // педали и человек. Пришлось соединит ьвместе для синхронизации ног с педалями
-    private PedalAndHuman pedalAndHuman = new PedalAndHuman(this);
     // колеса велосипеда
     private Wheels wheels = new Wheels(this);
+    // педали и человек. Пришлось соединит ьвместе для синхронизации ног с педалями
+    private PedalAndHuman pedalAndHuman = new PedalAndHuman(this);
     // на последний process() скорость велосипеда в у.е. была...
     private double speed = 0;
 
