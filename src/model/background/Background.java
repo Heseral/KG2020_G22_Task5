@@ -6,6 +6,7 @@ import util.Misc;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class Background {
@@ -43,11 +44,13 @@ public class Background {
                     Misc.random(GlobalVar.SKIES_HEIGHT, GlobalVar.GLADE_HEIGHT),
                     this
             ));
+            sortMiscObject();
         }
         if (!isAlreadyContentsBumpStop() && Misc.prob(getBicycle().getSpeed() / 200)) {
             setAlreadyContentsBumpStop(true);
             int length = Misc.random(200, 10000);
             miscBackgroundObjects.add(new BumpStop(length, this));
+            sortMiscObject();
         }
 
         for (int i = miscBackgroundObjects.size() - 1; i >= 0; i--) {
@@ -67,6 +70,10 @@ public class Background {
         setPrevState(getState());
         double temp = getState() + getBicycle().getSpeed() / 1000;
         setState(temp - (int) temp);
+    }
+
+    private void sortMiscObject() {
+        miscBackgroundObjects.sort((first, second) -> Double.compare(second.getCurrentPosY(), first.getCurrentPosY()));
     }
 
     public Bicycle getBicycle() {
