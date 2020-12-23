@@ -11,13 +11,12 @@ public class PedalAndHuman {
     private int xBedro;
     private int yBedro;
     // длина бедра
-    private final double powedLength = 75;
+    private final double bedroLength = 75;
 
     public PedalAndHuman(Bicycle bicycle) {
         setBicycle(bicycle);
         xBedro = getBicycle().getWheels().getSECOND_CENTER_X() - getBicycle().getWheels().getRADIUS() + 20;
         yBedro = getBicycle().getWheels().getSECOND_CENTER_Y() - getBicycle().getWheels().getRADIUS() - 20;
-        //powedLength = Math.pow(xBedro - x2, 2) + Math.pow(yBedro - y2, 2);
     }
 
     public void process(Graphics graphics) {
@@ -75,8 +74,8 @@ public class PedalAndHuman {
         ///=====/// человек ///=====///
         int y1 = getBicycle().getWheels().getSECOND_CENTER_Y() - getBicycle().getWheels().getRADIUS() - 30 - (getBicycle().getWheels().getSECOND_CENTER_Y() - firstPedalYPos);
         int y2 = getBicycle().getWheels().getSECOND_CENTER_Y() - getBicycle().getWheels().getRADIUS() - 30 - (getBicycle().getWheels().getSECOND_CENTER_Y() - secondPedalYPos);
-        int x1 = xBedro - (int) Math.sqrt(powedLength * powedLength - (yBedro - y1));//getBicycle().getWheels().getSECOND_CENTER_X() - getBicycle().getWheels().getRADIUS() - 55;
-        int x2 = xBedro - (int) Math.sqrt(powedLength * powedLength - (yBedro - y2));//getBicycle().getWheels().getSECOND_CENTER_X() - getBicycle().getWheels().getRADIUS() - 55;
+        int x1 = xBedro - (int) Math.sqrt(bedroLength * bedroLength - (yBedro - y1));
+        int x2 = xBedro - (int) Math.sqrt(bedroLength * bedroLength - (yBedro - y2));
 
         // голень человека на педали №1 (от педали до колена)
         graphics.drawLine(
