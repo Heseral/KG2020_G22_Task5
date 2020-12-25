@@ -42,17 +42,16 @@ public class DrawPanel extends JPanel implements KeyListener {
                 if (rightPedalState >= GlobalVar.RIGHT_ON_TOP && rightPedalState <= GlobalVar.RIGHT_ON_BOTTOM) {
                     targetSpeed = Math.max(
                             0, pressedKeyCode == KeyEvent.VK_RIGHT
-                                    ? targetSpeed + 0.5 - Math.abs(0.5 - rightPedalState)
-                                    : targetSpeed - 4 * (0.5 - Math.abs(0.5 - rightPedalState))
+                                    ? (targetSpeed - 0.125 * Math.cos(rightPedalState * 2 * Math.PI))
+                                    : (targetSpeed + (Math.cos(rightPedalState * 2 * Math.PI)))
                     );
                 } else {
                     targetSpeed = Math.max(
                             0, pressedKeyCode == KeyEvent.VK_LEFT
-                                    ? targetSpeed + Math.abs(1 - rightPedalState)
-                                    : targetSpeed - 4 * Math.abs(0.5 - rightPedalState)
+                                    ? (targetSpeed + 0.125 * Math.cos(rightPedalState * 2 * Math.PI))
+                                    : (targetSpeed - Math.cos(rightPedalState * 2 * Math.PI))
                     );
                 }
-                System.out.println(targetSpeed);
             }
         }, 0, 10);
     }
